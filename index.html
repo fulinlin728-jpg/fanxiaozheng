@@ -16,7 +16,6 @@ button{width:100%;padding:13px;background:#165DFF;color:#fff;border:none;border-
 .tip{text-align:center;margin-top:20px;font-size:15px}
 .ok{color:#00b42a}
 .err{color:#f53f3f}
-.card{width:100%;margin-top:20px;border-radius:8px;display:none}
 </style>
 </head>
 <body>
@@ -32,7 +31,6 @@ button{width:100%;padding:13px;background:#165DFF;color:#fff;border:none;border-
     </div>
     <button onclick="check()">立即验证</button>
     <div class="tip" id="tip"></div>
-    < img src="返校证.jpg" class="card" id="card">
 </div>
 
 <script>
@@ -147,18 +145,15 @@ function check(){
     var name = document.getElementById("name").value.trim();
     var phone = document.getElementById("phone").value.trim();
     var tip = document.getElementById("tip");
-    var card = document.getElementById("card");
 
     var ok = list.some(item => item.name === name && item.phone === phone);
 
     if(ok){
-        tip.innerHTML = "✅ 验证成功，返校证如下";
-        tip.className = "tip ok";
-        card.style.display = "block";
+        // ✅ 验证成功，直接跳转到图片
+        window.location.href = "返校证.jpg";
     }else{
         tip.innerHTML = "❌ 信息不匹配，请核对姓名与手机号";
         tip.className = "tip err";
-        card.style.display = "none";
     }
 }
 </script>
